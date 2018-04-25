@@ -11,5 +11,7 @@ namespace cameraatje.Models
         public int kleuter_id { get; set; }
 
         public Toddler toddler { get; set; }
+        public int toddler_id { get; set; }
+
     }
 }
