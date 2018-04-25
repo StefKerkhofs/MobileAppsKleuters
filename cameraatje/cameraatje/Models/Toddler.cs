@@ -12,7 +12,7 @@ namespace cameraatje.Models
         public string foto_string { get; set; }
 
         public int kleuter_id_referentie { get; set; }
-        public User User { get; set; }
+        public User user { get; set; }
 
         
     }
