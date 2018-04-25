@@ -4,7 +4,12 @@ using System.Text;
 
 namespace cameraatje.Models
 {
-    class User
+    public class User
     {
+        public string email { get; set; }
+        public string password { get; set;}
+        public int kleuter_id { get; set; }
+
+        public Toddler toddler { get; set; }
     }
 }

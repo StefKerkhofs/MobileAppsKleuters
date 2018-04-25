@@ -4,7 +4,7 @@ using System.Text;
 
 namespace cameraatje.Models
 {
-    class Toddler
+    public class Toddler
     {
     }
 }

@@ -4,7 +4,10 @@ using System.Text;
 
 namespace cameraatje.Models
 {
-    class Tags
+    public class Tag
     {
+        public int foto_id { get; set; }
+        public int tagged_kleuter_id { get; set; }
+
     }
 }
