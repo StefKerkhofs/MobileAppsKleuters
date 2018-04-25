@@ -31,6 +31,12 @@ namespace cameraatje
         {
             containerRegistry.RegisterForNavigation<NavigationPage>();
             containerRegistry.RegisterForNavigation<MainPage>();
+            containerRegistry.RegisterForNavigation<loginView>();
+            containerRegistry.RegisterForNavigation<loginView>();
+            containerRegistry.RegisterForNavigation<Login>();
+            containerRegistry.RegisterForNavigation<Start>();
+            containerRegistry.RegisterForNavigation<Start>();
+            containerRegistry.RegisterForNavigation<Login>();
         }
     }
 }
