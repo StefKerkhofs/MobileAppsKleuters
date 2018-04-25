@@ -13,7 +13,6 @@ namespace cameraatje.Models
 
         public string opmerking { get; set; }
         public string label { get; set; }
-        public Tag tag { get; set; }
         public Corner corner { get; set; }
     }
 }

@@ -9,6 +9,6 @@ namespace cameraatje.Models
         public int foto_id { get; set; }
         public int tagged_kleuter_id { get; set; }
         public Toddler toddler { get; set; }
-
+        public Picture picture { get; set; }
     }
 }
