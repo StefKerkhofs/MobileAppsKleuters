@@ -6,9 +6,9 @@ using System.Linq;
 
 namespace cameraatje.ViewModels
 {
-	public class StartViewModel : BindableBase
+	public class OverviewPersonalToddlerViewModel : BindableBase
 	{
-        public StartViewModel()
+        public OverviewPersonalToddlerViewModel()
         {
 
         }

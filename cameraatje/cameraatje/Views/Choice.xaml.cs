@@ -2,9 +2,9 @@
 
 namespace cameraatje.Views
 {
-    public partial class Start : ContentPage
+    public partial class Choice : ContentPage
     {
-        public Start()
+        public Choice()
         {
             InitializeComponent();
         }
