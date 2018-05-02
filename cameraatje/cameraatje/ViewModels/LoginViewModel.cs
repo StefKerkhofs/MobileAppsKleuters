@@ -5,10 +5,14 @@ using System.Collections.Generic;
 using System.Linq;
 using Firebase.Auth;
 using System.Windows.Input;
+using Prism.Services;
+using System.Threading.Tasks;
+using System.Diagnostics;
+using Prism.Navigation;
 
 namespace cameraatje.ViewModels
 {
-    public class LoginViewModel : BindableBase
+    public class LoginViewModel : ViewModelBase
     {
         private string email;
         public string Email
@@ -23,9 +27,12 @@ namespace cameraatje.ViewModels
             set { SetProperty(ref password, value); }
         }
         public ICommand loginCommand { get; private set; }
-        public LoginViewModel()
+        private IPageDialogService dialogService;
+        public LoginViewModel( INavigationService navigationService, IPageDialogService dialogService) : base(navigationService)
         {
+            dialogService.DisplayAlertAsync("test", "test", "Cancel");
             loginCommand = new DelegateCommand(login);
+            this.dialogService = dialogService;
         }
         public async void login()
         {
@@ -38,10 +45,17 @@ namespace cameraatje.ViewModels
                 // of course you can login using other method, not just email+password
                 var auth = new FirebaseAuthProvider(new FirebaseConfig(ApiKey));
                 var a = await auth.SignInWithEmailAndPasswordAsync(email, password);
-
+                Debug.WriteLine(email + " " + password );
+                await dialogService.DisplayAlertAsync("test", a.ToString(), "Cancel");
             }
             catch (Exception e)
-            { }
+            {
+                Debug.WriteLine(e.ToString());
+                await dialogService.DisplayAlertAsync("test", e.ToString(), "Cancel");
+            
+            }
         }
+
+      
     }
 }

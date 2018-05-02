@@ -7,19 +7,21 @@
     <ContentPage.Content>
         <Grid>
             <Grid.RowDefinitions>
-                <RowDefinition/>
-                <RowDefinition/>
-                <RowDefinition/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
-                <ColumnDefinition/>
-                <ColumnDefinition/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
-            <Label Grid.Column="1" Grid.Row="1" Text="E-mail:"/>
-            <Entry Grid.Column="1" Grid.Row="2" Placeholder="Jouw e-mail" Text="{Binding Email}"/>
-            <Label Grid.Column="1" Grid.Row="2" Text="Wachtwoord:"/>
-            <Entry Grid.Column="1" Grid.Row="2" IsPassword="True" Placeholder="Jouw wachtwoord" Text="{Binding Password}"/>
-            <Button Grid.Column="1" Grid.Row="3"  Command="{Binding LoginCommand}"  Text="Login"/>
+            <Label  Grid.Row="0" Text="E-mail:"/>
+            <Entry Grid.Column="1" Grid.ColumnSpan="2" Grid.Row="0" Placeholder="Jouw e-mail" Text="{Binding Email}"/>
+            <Label  Grid.Row="1" Text="Wachtwoord:"/>
+            <Entry Grid.Column="1" Grid.ColumnSpan="2" Grid.Row="1" IsPassword="True" Placeholder="Jouw wachtwoord" Text="{Binding Password}"/>
+            <Button Grid.Column="1" Grid.ColumnSpan="2" Grid.Row="2"  Command="{Binding LoginCommand}"  Text="Login"/>
             
         </Grid>
     </ContentPage.Content>
