@@ -32,7 +32,7 @@ namespace cameraatje.ViewModels
             //Firebase
             try
             {
-                string ApiKey = "YOUR_API_KEY";
+                string ApiKey = "AIzaSyBsGi32c2dYar02Zok9YHAanQU1J9OyxXA";
                 string Bucket = "your-bucket.appspot.com";
                 
                 // of course you can login using other method, not just email+password
