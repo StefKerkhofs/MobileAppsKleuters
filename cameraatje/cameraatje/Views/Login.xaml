@@ -16,9 +16,9 @@
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
             <Label Grid.Column="1" Grid.Row="1" Text="E-mail:"/>
-            <Entry Grid.Column="1" Grid.Row="2" Name="entEmail" Placeholder="Jouw e-mail" Text="{Binding Email}"/>
+            <Entry Grid.Column="1" Grid.Row="2" Placeholder="Jouw e-mail" Text="{Binding Email}"/>
             <Label Grid.Column="1" Grid.Row="2" Text="Wachtwoord:"/>
-            <Entry Grid.Column="1" Grid.Row="2" Name="entPassword" IsPassword="True" Placeholder="Jouw wachtwoord" Text="{Binding Password}"/>
+            <Entry Grid.Column="1" Grid.Row="2" IsPassword="True" Placeholder="Jouw wachtwoord" Text="{Binding Password}"/>
             <Button Grid.Column="1" Grid.Row="3"  Command="{Binding LoginCommand}"  Text="Login"/>
             
         </Grid>
