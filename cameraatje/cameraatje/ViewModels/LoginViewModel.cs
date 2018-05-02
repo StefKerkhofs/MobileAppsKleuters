@@ -44,13 +44,14 @@ namespace cameraatje.ViewModels
                 
                 // of course you can login using other method, not just email+password
                 var auth = new FirebaseAuthProvider(new FirebaseConfig(ApiKey));
+
                 var a = await auth.SignInWithEmailAndPasswordAsync(email, password);
-                Debug.WriteLine(email + " " + password );
+                Debug.WriteLine(a);
                 await dialogService.DisplayAlertAsync("test", a.ToString(), "Cancel");
             }
             catch (Exception e)
             {
-                Debug.WriteLine(e.ToString());
+                Debug.WriteLine(e);
                 await dialogService.DisplayAlertAsync("test", e.ToString(), "Cancel");
             
             }

@@ -21,7 +21,7 @@
             <Entry Grid.Column="1" Grid.ColumnSpan="2" Grid.Row="0" Placeholder="Jouw e-mail" Text="{Binding Email}"/>
             <Label  Grid.Row="1" Text="Wachtwoord:"/>
             <Entry Grid.Column="1" Grid.ColumnSpan="2" Grid.Row="1" IsPassword="True" Placeholder="Jouw wachtwoord" Text="{Binding Password}"/>
-            <Button Grid.Column="1" Grid.ColumnSpan="2" Grid.Row="2"  Command="{Binding LoginCommand}"  Text="Login"/>
+            <Button Grid.Column="1" Grid.ColumnSpan="2" Grid.Row="2"  Command="{Binding loginCommand}"  Text="Login"/>
             
         </Grid>
     </ContentPage.Content>
