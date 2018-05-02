@@ -30,12 +30,8 @@ namespace cameraatje
         protected override void RegisterTypes(IContainerRegistry containerRegistry)
         {
             containerRegistry.RegisterForNavigation<NavigationPage>();
-            containerRegistry.RegisterForNavigation<MainPage>();
-            containerRegistry.RegisterForNavigation<loginView>();
-            containerRegistry.RegisterForNavigation<loginView>();
+            containerRegistry.RegisterForNavigation<MainPage>();      
             containerRegistry.RegisterForNavigation<Login>();
-            containerRegistry.RegisterForNavigation<Start>();
-            containerRegistry.RegisterForNavigation<Start>();
             containerRegistry.RegisterForNavigation<Login>();
             containerRegistry.RegisterForNavigation<OverviewToddler>();
             containerRegistry.RegisterForNavigation<OverviewCorner>();
