@@ -6,7 +6,7 @@
 
     <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
         <Label Text="Het Cameraatje!"/>
-        <Button Text="Start" Command="{binding NavigateToLoginCommand}"/>
+        <Button Text="Start" Command="{Binding NavigateToLoginCommand}"/>
         
     </StackLayout>
 
