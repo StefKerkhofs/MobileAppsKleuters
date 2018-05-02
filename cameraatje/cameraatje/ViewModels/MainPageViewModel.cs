@@ -21,13 +21,14 @@ namespace cameraatje.ViewModels
         }
 
        
-        private void NavigateToLogin()
+        private async void NavigateToLogin()
         {
             var p = new NavigationParameters();
             p.Add("user", new User());
-            NavigationService.NavigateAsync("Login", p);
+          await  NavigationService.NavigateAsync("Login", p);
         }
-      
+       
+        
         public ICommand NavigateToLoginCommand { get; private set; }
     }
 }
