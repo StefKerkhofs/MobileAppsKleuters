@@ -4,5 +4,23 @@
              xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
              prism:ViewModelLocator.AutowireViewModel="True"
              x:Class="cameraatje.Views.Login">
-  
+    <ContentPage.Content>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Label Grid.Column="1" Grid.Row="1" Text="E-mail:"/>
+            <Entry Grid.Column="1" Grid.Row="2" Name="entEmail" Placeholder="Jouw e-mail" Text="{Binding Email}"/>
+            <Label Grid.Column="1" Grid.Row="2" Text="Wachtwoord:"/>
+            <Entry Grid.Column="1" Grid.Row="2" Name="entPassword" IsPassword="True" Placeholder="Jouw wachtwoord" Text="{Binding Password}"/>
+            <Button Grid.Column="1" Grid.Row="3"  Command="{Binding LoginCommand}"  Text="Login"/>
+            
+        </Grid>
+    </ContentPage.Content>
 </ContentPage>
