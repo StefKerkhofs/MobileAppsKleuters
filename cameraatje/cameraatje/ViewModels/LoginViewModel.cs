@@ -17,6 +17,7 @@ namespace cameraatje.ViewModels
      */
     public class LoginViewModel : ViewModelBase
     {
+        
         private string email;
         public string Email
         {
@@ -50,6 +51,8 @@ namespace cameraatje.ViewModels
                 var a = await auth.SignInWithEmailAndPasswordAsync(email, password);
                 Debug.WriteLine(a);
                 await dialogService.DisplayAlertAsync("test", a.ToString(), "Cancel");
+
+
             }
             catch (Exception e)
             {
