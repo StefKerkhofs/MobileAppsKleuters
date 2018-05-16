@@ -7,9 +7,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Windows.Input;
-//Stef
+
 namespace cameraatje.ViewModels
 {
+    //Author: Stef Kerkhofs
     public class MainPageViewModel : ViewModelBase
     {
         public MainPageViewModel(INavigationService navigationService) 
