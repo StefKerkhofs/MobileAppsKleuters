@@ -3,7 +3,7 @@ using Prism.Mvvm;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using Models;
+using cameraatje.Models;
 namespace cameraatje.ViewModels
 {
 	public class OverviewToddlerViewModel : BindableBase
@@ -11,15 +11,15 @@ namespace cameraatje.ViewModels
         public OverviewToddlerViewModel()
         {
 
-            var kleuterList = from t in Models.Toddler
+          /*  var kleuterList = from t in Toddler
                               orderby t.Name ascending
-                              select t;
+                              select t;*/
 
-            Items.Clear();
+          /*  Items.Clear();
             foreach (var kleuter in kleuterList)
             {
                 Items.Add(item);
-            }
+            }*/
         }
 	}
 }
