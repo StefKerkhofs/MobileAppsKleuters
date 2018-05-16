@@ -12,6 +12,9 @@ using Prism.Navigation;
 
 namespace cameraatje.ViewModels
 {
+    /*
+     author: sasha van de voorde
+     */
     public class LoginViewModel : ViewModelBase
     {
         private string email;
@@ -30,7 +33,6 @@ namespace cameraatje.ViewModels
         private IPageDialogService dialogService;
         public LoginViewModel( INavigationService navigationService, IPageDialogService dialogService) : base(navigationService)
         {
-            dialogService.DisplayAlertAsync("test", "test", "Cancel");
             loginCommand = new DelegateCommand(login);
             this.dialogService = dialogService;
         }
@@ -40,7 +42,7 @@ namespace cameraatje.ViewModels
             try
             {
                 string ApiKey = "AIzaSyBsGi32c2dYar02Zok9YHAanQU1J9OyxXA";
-                string Bucket = "your-bucket.appspot.com";
+                string Bucket = "gs://cameraatje-69273.appspot.com/";
                 
                 // of course you can login using other method, not just email+password
                 var auth = new FirebaseAuthProvider(new FirebaseConfig(ApiKey));
