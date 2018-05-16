@@ -20,5 +20,10 @@ namespace cameraatje.ViewModels
         }
 
         private IList<Picture> pictures;
+        public IList<Picture> Pictures
+        {
+            set { SetProperty(ref pictures, value); }
+            get { return pictures; }
+        }
     }
 }

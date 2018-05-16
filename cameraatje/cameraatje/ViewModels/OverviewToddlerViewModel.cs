@@ -6,10 +6,10 @@ using System.Linq;
 using cameraatje.Models;
 using cameraatje.Repositories;
 using cameraatje.Contracts;
-
+using Prism.Navigation;
 namespace cameraatje.ViewModels
 {
-	public class OverviewToddlerViewModel : BindableBase
+	public class OverviewToddlerViewModel : ViewModelBase
 	{
         private IToddlerRepository toddlerRepository;
 
@@ -20,7 +20,7 @@ namespace cameraatje.ViewModels
             get { return toddlers; }
         }
 
-        public OverviewToddlerViewModel(IToddlerRepository toddlerRepository)
+        public OverviewToddlerViewModel(INavigationService navigationService,  IToddlerRepository toddlerRepository) : base(navigationService)
         {
 
             this.toddlerRepository = toddlerRepository;
