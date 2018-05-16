@@ -5,7 +5,7 @@
              prism:ViewModelLocator.AutowireViewModel="True"
              x:Class="cameraatje.Views.OverviewToddler">
     <ContentPage.Content>
-        <ListView  x:Name="lstToddler">
+        <ListView ItemsSource="{Binding Toddlers}" x:Name="lstToddler">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <ViewCell>
@@ -21,3 +21,4 @@
         </ListView>
     </ContentPage.Content>
 </ContentPage>
+    
