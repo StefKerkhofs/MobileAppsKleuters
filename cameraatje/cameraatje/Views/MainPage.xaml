@@ -1,13 +1,22 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             NavigationPage.HasNavigationBar="False"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="cameraatje.Views.MainPage"
              Title="{Binding Title}">
-
-    <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
-        <Label Text="Het Cameraatje!"/>
-        <Button Text="Start" Command="{Binding NavigateToLoginCommand}"/>
-        
-    </StackLayout>
+    <ContentPage.Content>
+        <StackLayout HorizontalOptions="Center" VerticalOptions="Center" Spacing="100">
+            <Image Source="{Binding Logo}" Aspect="AspectFit"/>
+            <Image Source="{Binding School}">
+                <Image.GestureRecognizers>
+                    <TapGestureRecognizer
+                Tapped="OnTapGestureRecognizerTapped"
+                NumberOfTapsRequired="1" />
+                </Image.GestureRecognizers>
+            </Image>
+            <Button Image="{Binding Home}" Command="{Binding NavigateToLoginCommand}" WidthRequest="200" HeightRequest="200"/>
+        </StackLayout>
+    </ContentPage.Content>
+   
 
 </ContentPage>

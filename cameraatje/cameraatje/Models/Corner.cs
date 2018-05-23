@@ -14,7 +14,7 @@ namespace cameraatje.Models
         public string hoek_naam { get; set; }
         public string foto_string { get; set; }
 
-
+        public ICollection<Picture> Pictures { get; set; }
 
     }
 }
