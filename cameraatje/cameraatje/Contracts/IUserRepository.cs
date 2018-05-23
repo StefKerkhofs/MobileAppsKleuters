@@ -10,10 +10,10 @@ namespace cameraatje.Contracts
     {
         Task<List<User>> GetItemsAsync();
 
-        Task<User> GetItemAsync(string mail);
+        Task<User> GetItemAsync(int id);
 
-        Task<string> SaveItemAsync(User user);
+        Task<int> SaveItemAsync(User user);
 
-        Task<string> DeleteItemAsync(User user);
+        Task<int> DeleteItemAsync(User user);
     }
 }

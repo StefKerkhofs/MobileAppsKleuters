@@ -21,13 +21,13 @@ namespace cameraatje.Repositories
         {
             return await dbContext.Users.ToListAsync();
         }
-        public async Task<User> GetItemAsync(string mail)
+        public async Task<User> GetItemAsync(int id)
         {
-            return await dbContext.Users.SingleAsync(user => user.email == mail);
+            return await dbContext.Users.SingleAsync(user => user.user_id == id);
         }
-        public async Task<string> SaveItemAsync(User user)
+        public async Task<int> SaveItemAsync(User user)
         {
-            if (user.email == null)
+            if (user.user_id == 0)
             {
                 await dbContext.Users.AddAsync(user);
             }
@@ -35,7 +35,7 @@ namespace cameraatje.Repositories
             return await dbContext.SaveChangesAsync();
         }
 
-        public async Task<string> DeleteItemAsync(User user)
+        public async Task<int> DeleteItemAsync(User user)
         {
             dbContext.Users.Remove(user);
 
