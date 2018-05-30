@@ -2,13 +2,20 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              NavigationPage.HasNavigationBar="False"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
+             prism:ViewModelLocator.AutowireViewModel="True"
              x:Class="cameraatje.Views.MainPage"
              Title="{Binding Title}">
     <ContentPage.Content>
-        <StackLayout HorizontalOptions="Center" VerticalOptions="Center" Spacing="100">
-            <Button Image="{Binding School}" Command="{Binding NavigateToOverviewToddler}" WidthRequest="200" HeightRequest="200"/>
-            <Button Image="{Binding Home}" Command="{Binding NavigateToLoginCommand}" WidthRequest="200" HeightRequest="200"/>
+
+        <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" Spacing="20">
+            <Image Source="{Binding Logo}" Aspect="AspectFit" WidthRequest="250" HeightRequest="250"/>
+            <StackLayout Spacing="20" HorizontalOptions="Center">
+            <Button Image="{Binding School}" Command="{Binding NavigateToOverviewToddlerCommand}" WidthRequest="100" HeightRequest="100"/>
+            <Button Image="{Binding Home}" Command="{Binding NavigateToLoginCommand}" WidthRequest="100" HeightRequest="100"/>
+            </StackLayout>
         </StackLayout>
+        
     </ContentPage.Content>
    
 
