@@ -5,7 +5,9 @@ using cameraatje.Views;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using Prism.Unity;
-
+using cameraatje.Contracts;
+using cameraatje.Data;
+using cameraatje.Repositories;
 [assembly: XamlCompilation(XamlCompilationOptions.Compile)]
 namespace cameraatje
 {
@@ -33,6 +35,11 @@ namespace cameraatje
             containerRegistry.RegisterForNavigation<MainPage>();
             containerRegistry.RegisterForNavigation<Login>();
             containerRegistry.RegisterForNavigation<Login>();
+
+            containerRegistry.Register<IDbContext, CameraatjeDbContext>();
+            containerRegistry.Register<IRepository, CameraatjeRepository>();
+
+            
             containerRegistry.RegisterForNavigation<OverviewToddler>();
             containerRegistry.RegisterForNavigation<OverviewCorner>();
             containerRegistry.RegisterForNavigation<OverviewPicture>();

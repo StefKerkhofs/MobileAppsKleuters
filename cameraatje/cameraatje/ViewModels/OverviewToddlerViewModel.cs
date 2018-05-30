@@ -7,6 +7,8 @@ using cameraatje.Models;
 using cameraatje.Repositories;
 using cameraatje.Contracts;
 using Prism.Navigation;
+using Prism.Services;
+
 namespace cameraatje.ViewModels
 {
 	public class OverviewToddlerViewModel : ViewModelBase
