@@ -13,10 +13,10 @@ namespace cameraatje.Models
         public int user_id { get; set; }
         public string email { get; set; }
         public string password { get; set;}
+        [ForeignKey("kleuter_id")]
         public int kleuter_id { get; set; }
 
-        public Toddler Toddler { get; set; }
-        public int toddler_id { get; set; }
+     
 
     }
 }

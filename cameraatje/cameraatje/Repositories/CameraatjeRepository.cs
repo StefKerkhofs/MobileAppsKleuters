@@ -20,7 +20,7 @@ namespace cameraatje.Repositories
 
         public async Task<List<Corner>> GetCornersAsync()
         {
-            return await dbContext.Corners.ToListAsync();
+            return await dbContext.Corner.ToListAsync();
         }
 
         public async Task<List<Picture>> GetPicturesAsync()
@@ -28,12 +28,12 @@ namespace cameraatje.Repositories
             //test email
             var userEmail = "sasha@test.com";
             //pak de kleuter id van de user met het overeenkomende email
-            var id = from user in dbContext.Users
+            var id = from user in dbContext.User
                      where user.email == userEmail
                      select user.kleuter_id;
 
             //genereer een photolist
-            var pictureList = from picture in dbContext.Pictures
+            var pictureList = from picture in dbContext.Picture
                             where picture.kleuter_id == Convert.ToInt32(id)
                             select picture;
             pictures.AddRange(pictureList);
@@ -49,17 +49,17 @@ namespace cameraatje.Repositories
 
         public async Task<List<Tag>> GetTagsAsync()
         {
-            return await dbContext.Tags.ToListAsync();
+            return await dbContext.Tag.ToListAsync();
         }
 
         public async Task<List<Toddler>> GetToddlersAsync()
         {
-            return await dbContext.Toddlers.ToListAsync();
+            return await dbContext.Toddler.ToListAsync();
         }
 
         public async Task<List<User>> GetUsersAsync()
         {
-            return await dbContext.Users.ToListAsync();
+            return await dbContext.User.ToListAsync();
         }
     }
 }

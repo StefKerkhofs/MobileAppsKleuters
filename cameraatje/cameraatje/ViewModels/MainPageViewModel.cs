@@ -55,8 +55,8 @@ namespace cameraatje.ViewModels
         }
         private async void NavigateToOverviewToddler()
        {
-            var p = new NavigationParameters();
-          await  NavigationService.NavigateAsync("OverviewToddler", p);
+           
+          await  NavigationService.NavigateAsync("OverviewToddler");
         }
         
        

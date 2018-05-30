@@ -10,7 +10,9 @@ namespace cameraatje.Models
     {
         [Key][DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int count { get; set; }
-        public int PictureId { get; set; }
-        public int ToddlerId { get; set; }
+        [ForeignKey("foto_id")]
+        public int foto_id { get; set; }
+        [ForeignKey("kleuter_id")]
+        public int kleuter_id { get; set; }
     }
 }

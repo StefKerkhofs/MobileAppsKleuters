@@ -8,11 +8,11 @@ namespace cameraatje.Data
 {
     public class CameraatjeDbContext : DbContext, IDbContext
     {
-        public DbSet<Corner> Corners { get; set; }
-        public DbSet<Toddler> Toddlers { get ; set; }
-        public DbSet<User> Users { get ; set ; }
-        public DbSet<Picture> Pictures { get ; set ; }
-        public DbSet<Tag> Tags { get ; set; }
+        public DbSet<Corner> Corner { get; set; }
+        public DbSet<Toddler> Toddler { get ; set; }
+        public DbSet<User> User { get ; set ; }
+        public DbSet<Picture> Picture { get ; set ; }
+        public DbSet<Tag> Tag { get ; set; }
         private string connection;
 
         public CameraatjeDbContext(string connectionString) {

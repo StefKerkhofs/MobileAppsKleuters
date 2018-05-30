@@ -10,11 +10,11 @@ namespace cameraatje.Contracts
 {
     public interface IDbContext
     {
-        DbSet<Corner> Corners { get; set; }
-        DbSet<Toddler> Toddlers{ get; set; }
-        DbSet<User> Users { get; set; }
-        DbSet<Picture> Pictures { get; set; }
-        DbSet<Tag> Tags { get; set; }
+        DbSet<Corner> Corner { get; set; }
+        DbSet<Toddler> Toddler{ get; set; }
+        DbSet<User> User { get; set; }
+        DbSet<Picture> Picture { get; set; }
+        DbSet<Tag> Tag { get; set; }
         Task<int> SaveChangesAsync(CancellationToken cancellationToken = default(CancellationToken));
     }
 }

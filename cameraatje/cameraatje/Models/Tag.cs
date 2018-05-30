@@ -11,9 +11,9 @@ namespace cameraatje.Models
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int foto_id { get; set; }
+        [ForeignKey("kleuter_id")]
         public int tagged_kleuter_id { get; set; }
-        public Toddler Toddler { get; set; }
-        public Picture Picture { get; set; }
+     
 
        // public ICollection<Picture> Pictures { get; set; }
     }

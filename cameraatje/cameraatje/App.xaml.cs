@@ -34,18 +34,14 @@ namespace cameraatje
             containerRegistry.RegisterForNavigation<NavigationPage>();
             containerRegistry.RegisterForNavigation<MainPage>();
             containerRegistry.RegisterForNavigation<Login>();
-            containerRegistry.RegisterForNavigation<Login>();
-
-            containerRegistry.Register<IDbContext, CameraatjeDbContext>();
-            containerRegistry.Register<IRepository, CameraatjeRepository>();
-
-            
             containerRegistry.RegisterForNavigation<OverviewToddler>();
             containerRegistry.RegisterForNavigation<OverviewCorner>();
             containerRegistry.RegisterForNavigation<OverviewPicture>();
             containerRegistry.RegisterForNavigation<ChecklistToddler>();
             containerRegistry.RegisterForNavigation<Choice>();
             containerRegistry.RegisterForNavigation<OverviewPersonalToddler>();
+            containerRegistry.RegisterInstance<IDbContext>(new CameraatjeDbContext("Data Source=sashavdv.database.windows.net;Initial Catalog=cameraatje;Persist Security Info=True;User ID=sashavdv;Password=Heyhey123123"));
+            containerRegistry.Register<IRepository, CameraatjeRepository>();
         }
     }
 }

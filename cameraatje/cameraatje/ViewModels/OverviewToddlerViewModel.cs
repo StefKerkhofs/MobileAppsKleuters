@@ -43,14 +43,14 @@ namespace cameraatje.ViewModels
         }
 
         private string pictureUrl;
-        public OverviewToddlerViewModel(INavigationService navigationService,  IRepository repos, IDbContext dbContext) : base(navigationService)
+        public OverviewToddlerViewModel(INavigationService navigationService, IDbContext dbContext, IRepository repos) : base(navigationService)
         {
             this.dbContext = dbContext;
             this.repos = repos;
-    }
+        }
         public async override void OnNavigatedTo(NavigationParameters parameters)
         {
-           
+
             if (parameters.ContainsKey("PictureUrl"))
             {
                 pictureUrl = (string)parameters["PictureUrl"];

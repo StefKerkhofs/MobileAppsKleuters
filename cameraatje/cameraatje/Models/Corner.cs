@@ -12,9 +12,10 @@ namespace cameraatje.Models
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int hoek_id { get; set; }
         public string hoek_naam { get; set; }
+        [ForeignKey("foto_string")]
         public string foto_string { get; set; }
 
-        public ICollection<Picture> Pictures { get; set; }
+       
 
     }
 }

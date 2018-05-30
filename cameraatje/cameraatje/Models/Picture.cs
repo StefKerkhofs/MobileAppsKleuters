@@ -12,13 +12,13 @@ namespace cameraatje.Models
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int foto_id { get; set; }
         public string foto_string { get; set; }
+        [ForeignKey("kleuter_id")]
         public int kleuter_id { get; set; }
+
+        [ForeignKey("hoek_id")]
         public int hoek_id { get; set; }
 
-        public string opmerking { get; set; }
-        public string label { get; set; }
-        public Corner Corner { get; set; }
-        public Toddler Toddler { get; set; }
+     
 
        
 
