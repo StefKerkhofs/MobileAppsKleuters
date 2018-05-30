@@ -5,15 +5,15 @@
              prism:ViewModelLocator.AutowireViewModel="True"
              x:Class="cameraatje.Views.OverviewToddler">
     <ContentPage.Content>
-        <ListView ItemsSource="{Binding Toddlers}" x:Name="lstToddler">
+        <ListView ItemsSource="{Binding Toddlers}" x:Name="lstToddler" SelectedItem="{Binding SelectedKis,Mode=TwoWay}">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <ViewCell>
-                        <StackLayout BackgroundColor="#eee"
-						Orientation="Vertical">
-                            <StackLayout Orientation="Horizontal">
-                                <Image Source="{Binding image}" />
-                            </StackLayout>
+                        <StackLayout BackgroundColor="#eee"	Orientation="Horizontal">
+                            <Label Text="{Binding Toddlers.kleuter_naam}" VerticalTextAlignment="Center" HorizontalOptions="StartAndExpand" />
+
+                            <Image Source="{Binding Toddlers.foto_string}" />
+                            
                         </StackLayout>
                     </ViewCell>
                 </DataTemplate>

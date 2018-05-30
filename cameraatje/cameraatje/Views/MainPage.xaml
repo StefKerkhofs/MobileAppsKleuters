@@ -6,14 +6,7 @@
              Title="{Binding Title}">
     <ContentPage.Content>
         <StackLayout HorizontalOptions="Center" VerticalOptions="Center" Spacing="100">
-            <Image Source="{Binding Logo}" Aspect="AspectFit"/>
-            <Image Source="{Binding School}">
-                <Image.GestureRecognizers>
-                    <TapGestureRecognizer
-                Tapped="OnTapGestureRecognizerTapped"
-                NumberOfTapsRequired="1" />
-                </Image.GestureRecognizers>
-            </Image>
+            <Button Image="{Binding School}" Command="{Binding NavigateToOverviewToddler}" WidthRequest="200" HeightRequest="200"/>
             <Button Image="{Binding Home}" Command="{Binding NavigateToLoginCommand}" WidthRequest="200" HeightRequest="200"/>
         </StackLayout>
     </ContentPage.Content>

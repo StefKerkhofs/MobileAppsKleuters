@@ -11,7 +11,9 @@ namespace cameraatje.ViewModels
 {
 	public class OverviewToddlerViewModel : ViewModelBase
 	{
-        private IToddlerRepository toddlerRepository;
+        private IRepository repos;
+        private IDbContext dbContext;
+
 
         private IList<Toddler> toddlers;
         public IList<Toddler> Toddlers
@@ -19,29 +21,41 @@ namespace cameraatje.ViewModels
             set { SetProperty(ref toddlers, value); }
             get { return toddlers; }
         }
-
-        public OverviewToddlerViewModel(INavigationService navigationService,  IToddlerRepository toddlerRepository) : base(navigationService)
+        private Toddler selectedToddler;
+        public Toddler SelectedToddler
         {
-
-            this.toddlerRepository = toddlerRepository;
-            foreach (var toddler in toddlers)
+            get { return selectedToddler; }
+            set
             {
-                    
+                if (SetProperty(ref selectedToddler, value) && selectedToddler != null)
+                {
+                    var p = new NavigationParameters
+                    {
+                        { "Kid", selectedToddler },
+                        { "PictureUrl", pictureUrl }
+                    };
+                    NavigationService.NavigateAsync("OverviewCornerView", p);
+                    selectedToddler = null;
+                }
             }
+        }
 
-        /*  var kleuterList = from t in Toddler
-                            orderby t.Name ascending
-                            select t;*/
-
-        /*  Items.Clear();
-          foreach (var kleuter in kleuterList)
-          {
-              Items.Add(item);
-          }*/
+        private string pictureUrl;
+        public OverviewToddlerViewModel(INavigationService navigationService,  IRepository repos, IDbContext dbContext) : base(navigationService)
+        {
+            this.dbContext = dbContext;
+            this.repos = repos;
     }
         public async override void OnNavigatedTo(NavigationParameters parameters)
         {
-          //  Toddlers = await ToddlerRepository.GetItemsAsync();
+           
+            if (parameters.ContainsKey("PictureUrl"))
+            {
+                pictureUrl = (string)parameters["PictureUrl"];
+            }
+
+            repos = new CameraatjeRepository(dbContext);
+            Toddlers = await repos.GetToddlersAsync();
         }
     }
 }

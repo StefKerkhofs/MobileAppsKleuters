@@ -22,6 +22,7 @@ namespace cameraatje.ViewModels
             School = ImageSource.FromResource("cameraatje.Images.account_kleuter.png");
             Home = ImageSource.FromResource("cameraatje.Images.account_thuis.png");
             NavigateToLoginCommand = new DelegateCommand(NavigateToLogin);
+            NavigateToOverviewToddlerCommand = new DelegateCommand(NavigateToOverviewToddler);
         }
 
 
@@ -52,8 +53,15 @@ namespace cameraatje.ViewModels
             p.Add("user", new User());
           await  NavigationService.NavigateAsync("Login", p);
         }
-       
+        private async void NavigateToOverviewToddler()
+       {
+            var p = new NavigationParameters();
+          await  NavigationService.NavigateAsync("OverviewToddler", p);
+        }
         
+       
+
         public ICommand NavigateToLoginCommand { get; private set; }
+        public ICommand NavigateToOverviewToddlerCommand { get; private set; }
     }
 }
