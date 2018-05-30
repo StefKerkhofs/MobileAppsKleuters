@@ -6,7 +6,7 @@
              Title="{Binding Title}">
     <ContentPage.Content>
         <StackLayout HorizontalOptions="Center" VerticalOptions="Center" Spacing="100">
-            <Button Image="{Binding School}" Command="{Binding NavigateToOverviewToddler}" WidthRequest="200" HeightRequest="200"/>
+            <Button Image="{Binding School}" Command="{Binding NavigateToOverviewToddlerCommand}" WidthRequest="200" HeightRequest="200"/>
             <Button Image="{Binding Home}" Command="{Binding NavigateToLoginCommand}" WidthRequest="200" HeightRequest="200"/>
         </StackLayout>
     </ContentPage.Content>
