@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Windows.Input;
+using Xamarin.Forms;
 
 namespace cameraatje.ViewModels
 {
@@ -17,11 +18,34 @@ namespace cameraatje.ViewModels
             : base (navigationService)
         {
             Title = "Start";
-            
+            Logo = ImageSource.FromResource("cameraatje.Images.logo.png");
+            School = ImageSource.FromResource("cameraatje.Images.account_kleuter.png");
+            Home = ImageSource.FromResource("cameraatje.Images.account_thuis.png");
             NavigateToLoginCommand = new DelegateCommand(NavigateToLogin);
         }
 
-       
+
+        private ImageSource logo;
+        public ImageSource Logo
+        {
+            get { return logo; }
+            set { SetProperty(ref logo, value); }
+        }
+
+        private ImageSource home;
+        public ImageSource Home
+        {
+            get { return home; }
+            set { SetProperty(ref home, value); }
+        }
+
+        private ImageSource school;
+        public ImageSource School
+        {
+            get { return school; }
+            set { SetProperty(ref school, value); }
+        }
+
         private async void NavigateToLogin()
         {
             var p = new NavigationParameters();

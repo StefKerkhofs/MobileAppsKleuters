@@ -41,7 +41,7 @@ namespace cameraatje.ViewModels
     }
         public async override void OnNavigatedTo(NavigationParameters parameters)
         {
-            Toddlers = await ToddlerRepository.GetItemsAsync();
+          //  Toddlers = await ToddlerRepository.GetItemsAsync();
         }
     }
 }
