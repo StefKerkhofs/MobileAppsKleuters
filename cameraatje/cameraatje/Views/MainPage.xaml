@@ -11,8 +11,10 @@
         <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" Spacing="20">
             <Image Source="{Binding Logo}" Aspect="AspectFit" WidthRequest="250" HeightRequest="250"/>
             <StackLayout Spacing="20" HorizontalOptions="Center">
+                <Button Text="Go to Picture View" Command="{Binding NavigateToTakePictureCommand}" />
             <Button Image="{Binding School}" Command="{Binding NavigateToOverviewToddlerCommand}" WidthRequest="100" HeightRequest="100"/>
             <Button Image="{Binding Home}" Command="{Binding NavigateToLoginCommand}" WidthRequest="100" HeightRequest="100"/>
+                
             </StackLayout>
         </StackLayout>
         

@@ -23,6 +23,8 @@ namespace cameraatje.ViewModels
             Home = ImageSource.FromResource("cameraatje.Images.account_thuis.png");
             NavigateToLoginCommand = new DelegateCommand(NavigateToLogin);
             NavigateToOverviewToddlerCommand = new DelegateCommand(NavigateToOverviewToddler);
+            NavigateToTakePictureCommand = new DelegateCommand(NavigateToTakePicture);
+
         }
 
 
@@ -54,14 +56,20 @@ namespace cameraatje.ViewModels
           await  NavigationService.NavigateAsync("Login", p);
         }
         private async void NavigateToOverviewToddler()
-       {
+        {
            
           await  NavigationService.NavigateAsync("OverviewToddler");
+        }
+        private async void NavigateToTakePicture()
+        {
+           
+          await  NavigationService.NavigateAsync("TakePicture");
         }
         
        
 
         public ICommand NavigateToLoginCommand { get; private set; }
         public ICommand NavigateToOverviewToddlerCommand { get; private set; }
+        public ICommand NavigateToTakePictureCommand { get; private set; }
     }
 }

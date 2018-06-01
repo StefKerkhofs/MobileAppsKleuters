@@ -42,6 +42,7 @@ namespace cameraatje
             containerRegistry.RegisterForNavigation<OverviewPersonalToddler>();
             containerRegistry.RegisterInstance<IDbContext>(new CameraatjeDbContext("Data Source=sashavdv.database.windows.net;Initial Catalog=cameraatje;Persist Security Info=True;User ID=sashavdv;Password=Heyhey123123"));
             containerRegistry.Register<IRepository, CameraatjeRepository>();
+            containerRegistry.RegisterForNavigation<TakePicture>();
         }
     }
 }
