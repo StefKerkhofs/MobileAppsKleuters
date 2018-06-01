@@ -11,9 +11,6 @@ namespace cameraatje.Models
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int kleuter_id { get; set; }
-
-        [ForeignKey("foto_id")]
-        public int foto_id { get; set; }
         public string kleuter_naam { get; set; }
         public string foto_string { get; set; }
 
