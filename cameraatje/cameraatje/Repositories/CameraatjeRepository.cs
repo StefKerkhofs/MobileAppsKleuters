@@ -55,6 +55,7 @@ namespace cameraatje.Repositories
         public async Task<List<Toddler>> GetToddlersAsync()
         {
             return await dbContext.Toddler.ToListAsync();
+
         }
 
         public async Task<List<User>> GetUsersAsync()
