@@ -21,7 +21,7 @@ namespace cameraatje.ViewModels
 	{
         private IRepository repos;
         private IDbContext dbContext;
-
+        private IPageDialogService dialogService;
         private ICommand getPhotoCommand;
         private List<ImageSource> toddlerImages;
         private IList<Toddler> toddlers;
@@ -50,7 +50,7 @@ namespace cameraatje.ViewModels
         }
 
         private string pictureUrl;
-        public OverviewToddlerViewModel(INavigationService navigationService, IDbContext dbContext, IRepository repos) : base(navigationService)
+        public OverviewToddlerViewModel(INavigationService navigationService, IDbContext dbContext, IRepository repos, IPageDialogService dialogService) : base(navigationService)
         {
             this.dbContext = dbContext;
             this.repos = repos;
@@ -74,9 +74,9 @@ namespace cameraatje.ViewModels
             try
             {
                 string ApiKey = "AIzaSyBsGi32c2dYar02Zok9YHAanQU1J9OyxXA";
-                string Bucket = "gs://cameraatje-69273.appspot.com/";
-                string AuthEmail = "sashavandevoorde@gmail.com";
-                string AuthPassword = "Koekjessaus123";
+                string Bucket = "cameraatje-69273.appspot.com";
+                string AuthEmail = "sasha@test.com";
+                string AuthPassword = "testtest";
 
                 // of course you can login using other method, not just email+password
                 var auth = new FirebaseAuthProvider(new FirebaseConfig(ApiKey));
