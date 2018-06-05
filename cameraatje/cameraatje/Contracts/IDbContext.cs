@@ -8,6 +8,7 @@ using Microsoft.EntityFrameworkCore;
 namespace cameraatje.Contracts
 
 {
+    //Author: Sasha van de Voorde
     public interface IDbContext
     {
         DbSet<Corner> Corner { get; set; }

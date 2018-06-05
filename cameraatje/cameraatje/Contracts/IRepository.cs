@@ -5,6 +5,7 @@ using cameraatje.Models;
 using System.Threading.Tasks;
 namespace cameraatje.Contracts
 {
+    //Author: Sasha van de Voorde
     public interface IRepository
     {
         Task<List<Picture>> GetPicturesAsync();

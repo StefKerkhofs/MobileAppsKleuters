@@ -51,7 +51,19 @@ namespace cameraatje.ViewModels
             NavigateToLoginCommand = new DelegateCommand(NavigateToLogin);
             NavigateToOverviewToddlerCommand = new DelegateCommand(NavigateToOverviewToddler);
             TapCommand = new Command(OnTapped);
-        } 
+        }
+
+        private void OnTapped(object s)
+        {
+            if (s.ToString() == "school")
+            {
+                NavigateToOverviewToddler();
+            }
+            else if (s.ToString() == "home")
+            {
+                NavigateToLogin();
+            }
+        }
 
         private async void NavigateToLogin()
         {
@@ -67,17 +79,7 @@ namespace cameraatje.ViewModels
             await NavigationService.NavigateAsync("OverviewToddler");
         }
 
-        private void OnTapped(object s)
-        {
-            if (s.ToString() == "school")
-            {
-                NavigateToOverviewToddler();
-            }
-            else if(s.ToString()=="home")
-            {
-                NavigateToLogin();
-            }
-        }
+  
 
     
 

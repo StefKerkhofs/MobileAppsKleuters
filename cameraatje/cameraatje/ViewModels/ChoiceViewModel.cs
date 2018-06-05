@@ -13,7 +13,8 @@ using Xamarin.Forms;
 
 namespace cameraatje.ViewModels
 {
-	public class ChoiceViewModel : ViewModelBase
+    //Author: Sasha van de Voorde
+    public class ChoiceViewModel : ViewModelBase
     {
         private IRepository repos;
         private IDbContext dbContext;

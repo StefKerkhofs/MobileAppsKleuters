@@ -20,6 +20,7 @@ using Xamarin.Forms;
 
 namespace cameraatje.ViewModels
 {
+    //Author: Stef Kerkhofs
     public class TakePictureViewModel : ViewModelBase
     {
         private IRepository repos;
@@ -100,7 +101,7 @@ namespace cameraatje.ViewModels
                     .PutAsync(file.GetStream());
 
                 //Track progress of the upload
-                task.Progress.ProgressChanged += (s, e) => Console.WriteLine($"Progress: {e.Percentage} %");
+               // task.Progress.ProgressChanged += (s, e) => Console.WriteLine($"Progress: {e.Percentage} %");
 
                 // await the task to wait until upload completes and get the download url
                 var downloadUrl = await task;

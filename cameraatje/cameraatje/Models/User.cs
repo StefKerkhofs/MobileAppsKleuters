@@ -6,6 +6,7 @@ using System.Text;
 
 namespace cameraatje.Models
 {
+    //Author: Stef Kerkhofs
     public class User
     {
         [Key]

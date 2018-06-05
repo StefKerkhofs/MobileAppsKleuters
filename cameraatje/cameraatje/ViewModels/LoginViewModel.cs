@@ -18,11 +18,11 @@ using cameraatje.Contracts;
 namespace cameraatje.ViewModels
 {
     /*
-     author: sasha van de voorde
+     author: Sasha van de Voorde
      */
     public class LoginViewModel : ViewModelBase
     {
-        
+       private Models.User user;
         private string email;
         public string Email
         {
@@ -39,12 +39,11 @@ namespace cameraatje.ViewModels
         private IDbContext dbContext;
         public ICommand loginCommand { get; private set; }
         private IPageDialogService dialogService;
-        public LoginViewModel( INavigationService navigationService, IPageDialogService dialogService, IDbContext dbContext, IRepository repos) : base(navigationService)
+        public LoginViewModel( INavigationService navigationService, IDbContext dbContext, IRepository repos, IPageDialogService dialogService ) : base(navigationService)
         {
+            this.repos = repos;
             loginCommand = new DelegateCommand(login);
             this.dialogService = dialogService;
-            this.repos = repos;
-            this.dbContext = dbContext;
         }
        
         public async void login()
@@ -56,13 +55,10 @@ namespace cameraatje.ViewModels
                 
                 // of course you can login using other method, not just email+password
                 var auth = new FirebaseAuthProvider(new FirebaseConfig(ApiKey));
-
+               // user = await repos.GetUserAsync("sasha@test.com");
                 var a = await auth.SignInWithEmailAndPasswordAsync(email, password);
-                await dialogService.DisplayAlertAsync("Aanmelden is gelukt","User", "OK");
+                await dialogService.DisplayAlertAsync("Aanmelden is gelukt","Sasha", "OK");
                 var p = new NavigationParameters();
-               /* var u = await repos.GetUserAsync(email);
-                var t = await repos.GetToddlerAsync(u.kleuter_id);
-                p.Add("Toddler", t);*/
                 await NavigationService.NavigateAsync("OverviewToddler");
               
             }
@@ -77,3 +73,6 @@ namespace cameraatje.ViewModels
       
     }
 }
+
+
+

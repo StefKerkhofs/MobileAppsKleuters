@@ -8,6 +8,7 @@ using System.Linq;
 using Microsoft.EntityFrameworkCore;
 namespace cameraatje.Repositories
 {
+    //author: Sasha Van de Voorde
     public class CameraatjeRepository : IRepository
     {
         private IDbContext dbContext;
@@ -56,7 +57,8 @@ namespace cameraatje.Repositories
         {
             return await dbContext.Toddler.ToListAsync();
 
-        }   public async Task<Toddler> GetToddlerAsync( int id)
+        }
+        public async Task<Toddler> GetToddlerAsync( int id)
         {
             await Task.Run<Toddler>(() =>
             {

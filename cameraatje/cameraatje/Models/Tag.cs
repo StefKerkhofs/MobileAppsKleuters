@@ -6,6 +6,7 @@ using System.Text;
 
 namespace cameraatje.Models
 {
+    //Author: Stef Kerkhofs
     public class Tag
     {
         [Key]
@@ -15,6 +16,6 @@ namespace cameraatje.Models
         public int tagged_kleuter_id { get; set; }
      
 
-       // public ICollection<Picture> Pictures { get; set; }
+
     }
 }

@@ -6,6 +6,7 @@ using cameraatje.Contracts;
 using Microsoft.EntityFrameworkCore;
 namespace cameraatje.Data
 {
+    //Author: Sasha van de Voorde
     public class CameraatjeDbContext : DbContext, IDbContext
     {
         public DbSet<Corner> Corner { get; set; }

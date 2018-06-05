@@ -17,15 +17,12 @@ using System.Windows.Input;
 
 namespace cameraatje.ViewModels
 {
-	public class OverviewToddlerViewModel : ViewModelBase
+    //Author: Sasha van de Voorde
+    public class OverviewToddlerViewModel : ViewModelBase
 	{
         private IRepository repos;
         private IDbContext dbContext;
         private IPageDialogService dialogService;
-      
-
-        public ICommand TapCommand  { get; private set; }
-      
         private IList<Toddler> toddlers;
         public IList<Toddler> Toddlers
         {
@@ -49,8 +46,9 @@ namespace cameraatje.ViewModels
                 }
             }
         }
+        public ICommand TapCommand { get; private set; }
 
-        private string pictureUrl;
+
         public OverviewToddlerViewModel(INavigationService navigationService, IDbContext dbContext, IRepository repos, IPageDialogService dialogService) : base(navigationService)
         {
             this.dbContext = dbContext;
@@ -62,20 +60,14 @@ namespace cameraatje.ViewModels
         }
       
         public async override void OnNavigatedTo(NavigationParameters parameters)
-        {
-
-            if (parameters.ContainsKey("PictureUrl"))
-            {
-                pictureUrl = (string)parameters["PictureUrl"];
-            }
-
+        { 
             repos = new CameraatjeRepository(dbContext);
             Toddlers = await repos.GetToddlersAsync();
         }
         private void OnTapped(object s)
         {
-            
-                NavigateToTakePicture();
+
+            NavigateToTakePicture();
             
         }
         private async void NavigateToTakePicture()

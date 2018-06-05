@@ -16,7 +16,8 @@ using System.Collections.Generic;
 
 namespace cameraatje.ViewModels
 {
-	public class OverviewCornerViewModel : ViewModelBase
+    //Author: Sasha van de Voorde
+    public class OverviewCornerViewModel : ViewModelBase
 	{
         private IRepository repos;
         private IDbContext dbContext;
