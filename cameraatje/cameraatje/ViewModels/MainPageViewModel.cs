@@ -14,20 +14,7 @@ namespace cameraatje.ViewModels
     //Author: Stef Kerkhofs
     public class MainPageViewModel : ViewModelBase
     {
-        public MainPageViewModel(INavigationService navigationService) 
-            : base (navigationService)
-        {
-            Title = "Start";
-            Logo = ImageSource.FromResource("cameraatje.Images.logo.png");
-            School = ImageSource.FromResource("cameraatje.Images.account_kleuter.png");
-            Home = ImageSource.FromResource("cameraatje.Images.account_thuis.png");
-            NavigateToLoginCommand = new DelegateCommand(NavigateToLogin);
-            NavigateToOverviewToddlerCommand = new DelegateCommand(NavigateToOverviewToddler);
-            NavigateToTakePictureCommand = new DelegateCommand(NavigateToTakePicture);
-            TapCommand = new Command(OnTapped);
-        }
-
-
+       
         private ImageSource logo;
         public ImageSource Logo
         {
@@ -49,25 +36,37 @@ namespace cameraatje.ViewModels
             set { SetProperty(ref school, value); }
         }
 
+        public ICommand TapCommand { get; private set; }
+        public ICommand NavigateToLoginCommand { get; private set; }
+        public ICommand NavigateToOverviewToddlerCommand { get; private set; }
+
+        public MainPageViewModel(INavigationService navigationService)
+            : base(navigationService)
+        {
+            Title = "Start";
+            Logo = ImageSource.FromResource("cameraatje.Images.logo.png");
+            School = ImageSource.FromResource("cameraatje.Images.account_kleuter.png");
+            Home = ImageSource.FromResource("cameraatje.Images.account_thuis.png");
+
+            NavigateToLoginCommand = new DelegateCommand(NavigateToLogin);
+            NavigateToOverviewToddlerCommand = new DelegateCommand(NavigateToOverviewToddler);
+            TapCommand = new Command(OnTapped);
+        } 
+
         private async void NavigateToLogin()
         {
             var p = new NavigationParameters();
+          
             p.Add("user", new User());
           await  NavigationService.NavigateAsync("Login", p);
         }
+
         private async void NavigateToOverviewToddler()
         {
-           
-          await  NavigationService.NavigateAsync("OverviewToddler");
+
+            await NavigationService.NavigateAsync("OverviewToddler");
         }
-        private async void NavigateToTakePicture()
-        {
-           
-          await  NavigationService.NavigateAsync("TakePicture");
-        }
-        
-        public ICommand TapCommand  {get; private set; }
-        
+
         private void OnTapped(object s)
         {
             if (s.ToString() == "school")
@@ -80,8 +79,8 @@ namespace cameraatje.ViewModels
             }
         }
 
-        public ICommand NavigateToLoginCommand { get; private set; }
-        public ICommand NavigateToOverviewToddlerCommand { get; private set; }
-        public ICommand NavigateToTakePictureCommand { get; private set; }
+    
+
+        
     }
 }
