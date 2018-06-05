@@ -1,5 +1,6 @@
 ﻿using cameraatje.Contracts;
 using cameraatje.Models;
+using cameraatje.Repositories;
 using Firebase.Auth;
 using Firebase.Storage;
 using Plugin.Media;
@@ -19,12 +20,13 @@ using Xamarin.Forms;
 
 namespace cameraatje.ViewModels
 {
-	public class TakePictureViewModel : ViewModelBase
-	{
+    public class TakePictureViewModel : ViewModelBase
+    {
         private IRepository repos;
         private IDbContext dbContext;
         IPageDialogService dialogService;
-
+        Toddler selectedToddler;
+        Corner selectedCorner;
 
         public TakePictureViewModel(INavigationService navigationService, IDbContext dbContext, IRepository repos, IPageDialogService dialogService) : base(navigationService)
         {
@@ -50,7 +52,7 @@ namespace cameraatje.ViewModels
         {
             await CrossMedia.Current.Initialize();
 
-            if(!CrossMedia.Current.IsCameraAvailable || !CrossMedia.Current.IsTakePhotoSupported)
+            if (!CrossMedia.Current.IsCameraAvailable || !CrossMedia.Current.IsTakePhotoSupported)
             {
                 await dialogService.DisplayAlertAsync("No Camera", ":( No camera available.", "OK");
                 return;
@@ -79,7 +81,7 @@ namespace cameraatje.ViewModels
 
                 // of course you can login using other method, not just email+password
 
-               
+
 
                 var auth = new FirebaseAuthProvider(new FirebaseConfig(ApiKey));
                 var a = await auth.SignInWithEmailAndPasswordAsync(AuthEmail, AuthPassword);
@@ -97,7 +99,7 @@ namespace cameraatje.ViewModels
                     .Child(Convert.ToString(DateTime.Now) + "file.png".Replace("/", ""))
                     .PutAsync(file.GetStream());
 
-                 //Track progress of the upload
+                //Track progress of the upload
                 task.Progress.ProgressChanged += (s, e) => Console.WriteLine($"Progress: {e.Percentage} %");
 
                 // await the task to wait until upload completes and get the download url
@@ -107,11 +109,30 @@ namespace cameraatje.ViewModels
                 //Firebase download
                 Source = downloadUrl;
 
+                Picture picture = new Picture();
+                picture.foto_string = downloadUrl;
+
+                
+
             }
             catch (Exception ex)
             {
                 await dialogService.DisplayAlertAsync("Exception was thrown", ex.Message, "OK");
             }
+
+        }
+        public async override void OnNavigatedTo(NavigationParameters parameters)
+        {
+            if (parameters.ContainsKey("Toddler") && parameters.ContainsKey("Corner"))
+            {
+                selectedToddler = (Toddler)parameters["Toddler"];
+                selectedCorner = (Corner)parameters["Corner"];
+            }
+
+            repos = new CameraatjeRepository(dbContext);
+        }
+
+
         }
 
     }
