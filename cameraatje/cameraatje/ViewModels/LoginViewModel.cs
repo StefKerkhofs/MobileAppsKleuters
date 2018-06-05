@@ -36,6 +36,8 @@ namespace cameraatje.ViewModels
         {
             loginCommand = new DelegateCommand(login);
             this.dialogService = dialogService;
+       
+            
             
         }
         public async void login()
@@ -51,7 +53,7 @@ namespace cameraatje.ViewModels
 
                 var a = await auth.SignInWithEmailAndPasswordAsync(email, password);
                 await dialogService.DisplayAlertAsync("Aanmelden is gelukt","User", "OK");
-                await NavigationService.NavigateAsync("OverViewToddlerView");
+                await NavigationService.NavigateAsync("OverviewToddler");
 
             }
             catch (Exception e)
@@ -61,13 +63,7 @@ namespace cameraatje.ViewModels
             
             }
         }
-
-
-        public void OnNavigatedTo(NavigationParameters parameters)
-        {
-            
-        }
-
+   
       
     }
 }
