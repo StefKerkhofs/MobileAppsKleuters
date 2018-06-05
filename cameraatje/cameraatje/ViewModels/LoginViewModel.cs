@@ -49,8 +49,8 @@ namespace cameraatje.ViewModels
                 var auth = new FirebaseAuthProvider(new FirebaseConfig(ApiKey));
 
                 var a = await auth.SignInWithEmailAndPasswordAsync(email, password);
-                Debug.WriteLine(a);
-                await dialogService.DisplayAlertAsync("test", a.ToString(), "Cancel");
+                
+                await dialogService.DisplayAlertAsync("Aanmelden is gelukt", "Gebruiker" , "OK");
 
 
             }
