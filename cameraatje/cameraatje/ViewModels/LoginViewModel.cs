@@ -9,7 +9,10 @@ using Prism.Services;
 using System.Threading.Tasks;
 using System.Diagnostics;
 using Prism.Navigation;
+using cameraatje.Models;
+using cameraatje.Repositories;
 
+using System.Linq;
 namespace cameraatje.ViewModels
 {
     /*
@@ -35,26 +38,26 @@ namespace cameraatje.ViewModels
         public LoginViewModel( INavigationService navigationService, IPageDialogService dialogService) : base(navigationService)
         {
             loginCommand = new DelegateCommand(login);
-            this.dialogService = dialogService;
-       
-            
-            
+            this.dialogService = dialogService;            
         }
+       
         public async void login()
         {
             //Firebase
             try
             {
                 string ApiKey = "AIzaSyBsGi32c2dYar02Zok9YHAanQU1J9OyxXA";
-                string Bucket = "gs://cameraatje-69273.appspot.com/";
                 
                 // of course you can login using other method, not just email+password
                 var auth = new FirebaseAuthProvider(new FirebaseConfig(ApiKey));
 
                 var a = await auth.SignInWithEmailAndPasswordAsync(email, password);
                 await dialogService.DisplayAlertAsync("Aanmelden is gelukt","User", "OK");
-                await NavigationService.NavigateAsync("OverviewToddler");
-
+                var p = new NavigationParameters();
+                var u = await GetUserAsync(email);
+                p.Add("Toddler", t);
+                await NavigationService.NavigateAsync("Choice",p);
+              
             }
             catch (Exception e)
             {

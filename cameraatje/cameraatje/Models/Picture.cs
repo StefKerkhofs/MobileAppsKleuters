@@ -17,7 +17,8 @@ namespace cameraatje.Models
 
         [ForeignKey("hoek_id")]
         public int hoek_id { get; set; }
-
+        public string opmerking { get; set; }
+        public string label { get; set; }
      
 
        

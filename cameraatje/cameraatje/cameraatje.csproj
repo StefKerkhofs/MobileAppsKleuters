@@ -7,12 +7,16 @@
   <ItemGroup>
     <None Remove="Images\account_kleuter.png" />
     <None Remove="Images\account_thuis.png" />
+    <None Remove="Images\class.png" />
+    <None Remove="Images\home.png" />
     <None Remove="Images\logo.png" />
   </ItemGroup>
 
   <ItemGroup>
     <EmbeddedResource Include="Images\account_kleuter.png" />
     <EmbeddedResource Include="Images\account_thuis.png" />
+    <EmbeddedResource Include="Images\class.png" />
+    <EmbeddedResource Include="Images\home.png" />
     <EmbeddedResource Include="Images\logo.png" />
   </ItemGroup>
 

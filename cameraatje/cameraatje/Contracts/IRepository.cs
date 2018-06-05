@@ -11,6 +11,7 @@ namespace cameraatje.Contracts
         Task<List<Toddler>> GetToddlersAsync();
         Task<List<Tag>> GetTagsAsync();
         Task<List<User>> GetUsersAsync();
+        Task<User> GetUserAsync(string email);
         Task<List<Corner>> GetCornersAsync();
     }
 }
