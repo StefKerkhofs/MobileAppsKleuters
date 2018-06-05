@@ -63,7 +63,7 @@ namespace cameraatje.ViewModels
                /* var u = await repos.GetUserAsync(email);
                 var t = await repos.GetToddlerAsync(u.kleuter_id);
                 p.Add("Toddler", t);*/
-                await NavigationService.NavigateAsync("OverViewToddlerView");
+                await NavigationService.NavigateAsync("OverviewToddler");
               
             }
             catch (Exception e)

@@ -10,7 +10,7 @@
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="Auto"/>
-                
+
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*"/>
@@ -22,7 +22,7 @@
             <Label  Grid.Row="1" Text="Wachtwoord:"/>
             <Entry Grid.Column="1" Grid.ColumnSpan="2" Grid.Row="1" IsPassword="True" Placeholder="Jouw wachtwoord" Text="{Binding Password}"/>
             <Button Grid.Column="1" Grid.ColumnSpan="2" Grid.Row="2"  Command="{Binding loginCommand}"  Text="Login"/>
-            
+
         </Grid>
     </ContentPage.Content>
 </ContentPage>
