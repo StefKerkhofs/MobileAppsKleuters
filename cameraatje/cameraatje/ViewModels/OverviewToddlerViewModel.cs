@@ -45,7 +45,7 @@ namespace cameraatje.ViewModels
                         { "Toddler", selectedToddler },
                         { "PictureUrl", pictureUrl }
                     };
-                    NavigationService.NavigateAsync("TakePicture", p);
+                    NavigationService.NavigateAsync("OverviewCorner", p);
                     selectedToddler = null;
                 }
             }

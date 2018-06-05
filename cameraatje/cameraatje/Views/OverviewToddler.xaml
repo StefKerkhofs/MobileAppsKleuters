@@ -5,7 +5,7 @@
              prism:ViewModelLocator.AutowireViewModel="True"
              x:Class="cameraatje.Views.OverviewToddler">
     <ContentPage.Content>
-        <ListView ItemsSource="{Binding Toddlers}" x:Name="lstToddler" SelectedItem="{Binding SelectedToddler,Mode=TwoWay}">
+        <ListView ItemsSource="{Binding Toddlers}" x:Name="lstToddler"  HasUnevenRows="true" SelectedItem="{Binding SelectedToddler,Mode=TwoWay}">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <ViewCell>
