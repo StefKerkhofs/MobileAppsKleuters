@@ -43,7 +43,6 @@ namespace cameraatje.ViewModels
                     var p = new NavigationParameters
                     {
                         { "Toddler", selectedToddler },
-                        { "PictureUrl", pictureUrl }
                     };
                     NavigationService.NavigateAsync("OverviewCorner", p);
                     selectedToddler = null;
