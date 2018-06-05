@@ -60,10 +60,10 @@ namespace cameraatje.ViewModels
                 var a = await auth.SignInWithEmailAndPasswordAsync(email, password);
                 await dialogService.DisplayAlertAsync("Aanmelden is gelukt","User", "OK");
                 var p = new NavigationParameters();
-                var u = await repos.GetUserAsync(email);
+               /* var u = await repos.GetUserAsync(email);
                 var t = await repos.GetToddlerAsync(u.kleuter_id);
-                p.Add("Toddler", t);
-                await NavigationService.NavigateAsync("Choice",p);
+                p.Add("Toddler", t);*/
+                await NavigationService.NavigateAsync("OverViewToddlerView");
               
             }
             catch (Exception e)

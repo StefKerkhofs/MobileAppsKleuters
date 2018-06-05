@@ -8,19 +8,15 @@
         <ListView.ItemTemplate>
             <DataTemplate>
                 <ViewCell>
-
-                    
                     <StackLayout Orientation="Vertical" VerticalOptions="CenterAndExpand">
                         <StackLayout.Children>
-                        <Label Text="{Binding hoek_naam}" TextColor="Black" FontSize = "20" HorizontalOptions="Center" WidthRequest="100" />
-
+                            <Label Text="{Binding hoek_naam}" TextColor="Black"
+                                   FontSize = "20" HorizontalOptions="Center" WidthRequest="100" />
                             <Image HorizontalOptions="Center"  VerticalOptions="Fill"
                                    Source='{Binding foto_string}'
-                                  Aspect="AspectFill"
-                                >
-                        </Image>
+                                  Aspect="AspectFill">
+                            </Image>
                         </StackLayout.Children>
-
                     </StackLayout>
                 </ViewCell>
             </DataTemplate>
