@@ -42,10 +42,10 @@ namespace cameraatje.ViewModels
                 {
                     var p = new NavigationParameters
                     {
-                        { "Kid", selectedToddler },
+                        { "Toddler", selectedToddler },
                         { "PictureUrl", pictureUrl }
                     };
-                    NavigationService.NavigateAsync("OverviewCornerView", p);
+                    NavigationService.NavigateAsync("TakePicture", p);
                     selectedToddler = null;
                 }
             }
@@ -57,7 +57,7 @@ namespace cameraatje.ViewModels
             this.dbContext = dbContext;
             this.repos = repos;
             this.dialogService = dialogService; 
-            var tapImageSynch = new TapGestureRecognizer();
+          
             TapCommand = new Command(OnTapped);
          
         }
@@ -75,10 +75,9 @@ namespace cameraatje.ViewModels
         }
         private void OnTapped(object s)
         {
-            if (s.ToString() == "camera")
-            {
+            
                 NavigateToTakePicture();
-            }
+            
         }
         private async void NavigateToTakePicture()
         {
