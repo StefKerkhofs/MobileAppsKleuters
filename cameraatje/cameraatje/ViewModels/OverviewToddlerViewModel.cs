@@ -23,7 +23,6 @@ namespace cameraatje.ViewModels
         private IDbContext dbContext;
         private IPageDialogService dialogService;
         private ICommand getPhotoCommand;
-        private List<ImageSource> toddlerImages;
         private IList<Toddler> toddlers;
         public IList<Toddler> Toddlers
         {
@@ -67,36 +66,8 @@ namespace cameraatje.ViewModels
 
             repos = new CameraatjeRepository(dbContext);
             Toddlers = await repos.GetToddlersAsync();
-            getPhotos();
         }
-        public async void getPhotos() {
-            //Firebase
-            try
-            {
-                string ApiKey = "AIzaSyBsGi32c2dYar02Zok9YHAanQU1J9OyxXA";
-                string Bucket = "cameraatje-69273.appspot.com";
-                string AuthEmail = "sasha@test.com";
-                string AuthPassword = "testtest";
-
-                // of course you can login using other method, not just email+password
-                var auth = new FirebaseAuthProvider(new FirebaseConfig(ApiKey));
-                var a = await auth.SignInWithEmailAndPasswordAsync(AuthEmail, AuthPassword);
-
-                
-                //Firebase download
-                HttpClient client = await HttpClientFactory.CreateHttpClientAsync(new FirebaseStorageOptions
-                {
-                    AuthTokenAsyncFactory = () => Task.FromResult(a.FirebaseToken),
-                });
-                foreach (Toddler t in Toddlers)
-                {
-                    var stream = await client.GetStreamAsync(t.foto_string);
-                    toddlerImages.Add(ImageSource.FromStream(() => stream));
-                }
-            }
-            catch (Exception ex)
-            {
-            }
-        }
+  
+       
     }
 }

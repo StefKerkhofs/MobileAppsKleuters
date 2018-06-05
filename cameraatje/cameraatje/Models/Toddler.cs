@@ -6,7 +6,7 @@ using System.Text;
 
 namespace cameraatje.Models
 {
-   public class Toddler
+    public class Toddler
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
@@ -14,7 +14,7 @@ namespace cameraatje.Models
         public string kleuter_naam { get; set; }
         public string foto_string { get; set; }
 
-
+     //  public Xamarin.Forms.ImageSource toddler_image { get; set; }
         
     }
 }
