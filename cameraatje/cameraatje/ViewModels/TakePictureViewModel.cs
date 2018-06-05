@@ -93,8 +93,8 @@ namespace cameraatje.ViewModels
                         AuthTokenAsyncFactory = () => Task.FromResult(a.FirebaseToken),
                     })
                     .Child("data")
-                    .Child("random")
-                    .Child("file.png")
+                    .Child("foto's")
+                    .Child(Convert.ToString(DateTime.Now) + "file.png".Replace("/", ""))
                     .PutAsync(file.GetStream());
 
                  //Track progress of the upload
@@ -106,12 +106,6 @@ namespace cameraatje.ViewModels
 
                 //Firebase download
                 Source = downloadUrl;
-
-             
-
-
-
-
 
             }
             catch (Exception ex)
