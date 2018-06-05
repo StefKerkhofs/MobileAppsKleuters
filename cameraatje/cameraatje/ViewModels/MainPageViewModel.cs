@@ -27,7 +27,6 @@ namespace cameraatje.ViewModels
             TapCommand = new Command(OnTapped);
         }
 
-        private ICommand tapCommand;
 
         private ImageSource logo;
         public ImageSource Logo
