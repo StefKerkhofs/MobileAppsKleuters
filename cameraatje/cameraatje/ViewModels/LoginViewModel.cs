@@ -36,6 +36,7 @@ namespace cameraatje.ViewModels
         {
             loginCommand = new DelegateCommand(login);
             this.dialogService = dialogService;
+            
         }
         public async void login()
         {
@@ -49,9 +50,8 @@ namespace cameraatje.ViewModels
                 var auth = new FirebaseAuthProvider(new FirebaseConfig(ApiKey));
 
                 var a = await auth.SignInWithEmailAndPasswordAsync(email, password);
-                
-                await dialogService.DisplayAlertAsync("Aanmelden is gelukt", "Gebruiker" , "OK");
-
+                await dialogService.DisplayAlertAsync("Aanmelden is gelukt","User", "OK");
+                await NavigationService.NavigateAsync("OverViewToddlerView");
 
             }
             catch (Exception e)
@@ -60,6 +60,12 @@ namespace cameraatje.ViewModels
                 await dialogService.DisplayAlertAsync("test", e.ToString(), "Cancel");
             
             }
+        }
+
+
+        public void OnNavigatedTo(NavigationParameters parameters)
+        {
+            
         }
 
       
