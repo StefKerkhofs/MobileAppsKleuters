@@ -22,12 +22,10 @@ namespace cameraatje.ViewModels
         private IRepository repos;
         private IDbContext dbContext;
         private IPageDialogService dialogService;
-        public ICommand tapCommand;
+      
 
-        public ICommand TapCommand
-        {
-            get { return tapCommand; }
-        }
+        public ICommand TapCommand  { get; private set; }
+      
         private IList<Toddler> toddlers;
         public IList<Toddler> Toddlers
         {
@@ -60,7 +58,7 @@ namespace cameraatje.ViewModels
             this.repos = repos;
             this.dialogService = dialogService; 
             var tapImageSynch = new TapGestureRecognizer();
-            tapCommand = new Command(NavigateToCamera);
+            TapCommand = new Command(OnTapped);
          
         }
       
@@ -75,8 +73,14 @@ namespace cameraatje.ViewModels
             repos = new CameraatjeRepository(dbContext);
             Toddlers = await repos.GetToddlersAsync();
         }
-
-        private async void NavigateToCamera()
+        private void OnTapped(object s)
+        {
+            if (s.ToString() == "camera")
+            {
+                NavigateToTakePicture();
+            }
+        }
+        private async void NavigateToTakePicture()
         {
 
             await NavigationService.NavigateAsync("TakePicture");

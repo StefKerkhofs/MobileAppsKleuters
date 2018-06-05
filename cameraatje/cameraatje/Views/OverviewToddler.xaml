@@ -13,11 +13,9 @@
 
                             <Image HorizontalOptions="CenterAndExpand" 
                                    Source='{Binding foto_string}'
-                                   WidthRequest="400"
-                                   HeightRequest="400">
+                                  Aspect="AspectFill">
                                 <Image.GestureRecognizers>
-                                    <TapGestureRecognizer Command="{Binding tapCommand}" 
-                     />
+                                    <TapGestureRecognizer Command="{Binding TapCommand}" CommandParameter="camera"  NumberOfTapsRequired="1" />
                                 </Image.GestureRecognizers>
                             </Image>
 
