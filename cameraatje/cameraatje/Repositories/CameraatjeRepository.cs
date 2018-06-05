@@ -62,5 +62,17 @@ namespace cameraatje.Repositories
         {
             return await dbContext.User.ToListAsync();
         }
+        public async Task<User> GetUserAsync(string email)
+        {
+           
+            await Task.Run<User>(() =>
+            { var person = from user in dbContext.User
+                     where user.email == email
+                     select user;
+                return (User)person;
+            }
+                       );
+            return null;
+        }
     }
 }

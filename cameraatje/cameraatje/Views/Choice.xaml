@@ -4,5 +4,30 @@
              xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
              prism:ViewModelLocator.AutowireViewModel="True"
              x:Class="cameraatje.Views.Choice">
-  
+    <ContentPage.Content>
+
+        <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" Spacing="20">
+            <StackLayout Spacing="20" HorizontalOptions="Center">
+                <Image  Source="{Binding School}" Aspect="AspectFit" WidthRequest="100" HeightRequest="100">
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer
+                            NumberOfTapsRequired="1" 
+                            Command="{Binding TapCommand}"
+                            CommandParameter="school" />
+                    </Image.GestureRecognizers>
+                </Image>
+                <Image Source="{Binding Home}" Aspect="AspectFit" WidthRequest="100" HeightRequest="100">
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer
+                            NumberOfTapsRequired="1" 
+                            Command="{Binding TapCommand}"
+                            CommandParameter="home" />
+                    </Image.GestureRecognizers>
+                </Image>
+
+            </StackLayout>
+        </StackLayout>
+
+    </ContentPage.Content>
+
 </ContentPage>

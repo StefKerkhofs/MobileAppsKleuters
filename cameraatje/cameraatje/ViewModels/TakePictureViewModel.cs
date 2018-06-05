@@ -108,10 +108,12 @@ namespace cameraatje.ViewModels
 
                 Picture p = new Picture();
                 p.foto_string = downloadUrl;
-                p.hoek_id = 
-
-                Picture picture = new Picture();
-                picture.foto_string = downloadUrl;
+                p.hoek_id = selectedCorner.hoek_id;
+                p.kleuter_id = selectedToddler.kleuter_id;
+                
+                dbContext.Picture.Add(p);
+                await dbContext.SaveChangesAsync();
+         
 
                 
 
@@ -132,10 +134,6 @@ namespace cameraatje.ViewModels
 
             repos = new CameraatjeRepository(dbContext);
         }
-
-
-        }
-
-    }
+     }
 	
 }
