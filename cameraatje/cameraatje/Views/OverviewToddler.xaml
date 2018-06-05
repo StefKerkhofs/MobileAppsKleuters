@@ -9,10 +9,10 @@
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <ViewCell>
-                        <StackLayout BackgroundColor="#eee"	Orientation="Horizontal">
-                            <Label Text="{Binding Toddlers.kleuter_naam}" VerticalTextAlignment="Center" HorizontalOptions="StartAndExpand" />
+                        <StackLayout Margin="20,0,0,0"	Orientation="Horizontal">
+                            <Label Text="{Binding kleuter_naam}" VerticalTextAlignment="Center" HorizontalOptions="StartAndExpand" />
 
-                            <Image HorizontalOptions="End" Source='{Binding toddlerImages}'/>
+                            <Image HorizontalOptions="End" Source='{Binding foto_string}' WidthRequest="200" HeightRequest="200"/>
                             
                         </StackLayout>
                     </ViewCell>
