@@ -24,9 +24,10 @@ namespace cameraatje.ViewModels
             NavigateToLoginCommand = new DelegateCommand(NavigateToLogin);
             NavigateToOverviewToddlerCommand = new DelegateCommand(NavigateToOverviewToddler);
             NavigateToTakePictureCommand = new DelegateCommand(NavigateToTakePicture);
-
+            TapCommand = new Command(OnTapped);
         }
 
+        private ICommand tapCommand;
 
         private ImageSource logo;
         public ImageSource Logo
@@ -66,7 +67,19 @@ namespace cameraatje.ViewModels
           await  NavigationService.NavigateAsync("TakePicture");
         }
         
-       
+        public ICommand TapCommand  {get; private set; }
+        
+        private void OnTapped(object s)
+        {
+            if (s.ToString() == "school")
+            {
+                NavigateToOverviewToddler();
+            }
+            else if(s.ToString()=="home")
+            {
+                NavigateToLogin();
+            }
+        }
 
         public ICommand NavigateToLoginCommand { get; private set; }
         public ICommand NavigateToOverviewToddlerCommand { get; private set; }
