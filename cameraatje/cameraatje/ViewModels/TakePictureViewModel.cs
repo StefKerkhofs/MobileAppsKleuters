@@ -104,8 +104,9 @@ namespace cameraatje.ViewModels
                 var downloadUrl = await task;
                 await dialogService.DisplayAlertAsync("Download Url", downloadUrl, "OK");
 
-                //Firebase download
-                Source = downloadUrl;
+                Picture p = new Picture();
+                p.foto_string = downloadUrl;
+                p.hoek_id = 
 
             }
             catch (Exception ex)
