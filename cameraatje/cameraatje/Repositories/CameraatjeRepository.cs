@@ -56,6 +56,17 @@ namespace cameraatje.Repositories
         {
             return await dbContext.Toddler.ToListAsync();
 
+        }   public async Task<Toddler> GetToddlerAsync( int id)
+        {
+            await Task.Run<Toddler>(() =>
+            {
+                var tod = from toddler in dbContext.Toddler
+                             where toddler.kleuter_id == id
+                             select toddler;
+                return (Toddler)tod;
+            }
+                                   );
+            return null;
         }
 
         public async Task<List<User>> GetUsersAsync()

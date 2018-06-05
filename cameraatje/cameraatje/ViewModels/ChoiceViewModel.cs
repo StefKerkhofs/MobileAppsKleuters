@@ -68,8 +68,8 @@ namespace cameraatje.ViewModels
         private async void NavigateToSchool()
         {
             var p = new NavigationParameters();
-            p.Add("user", new User());
-            await NavigationService.NavigateAsync("Login", p);
+            p.Add("Toddler", selectedToddler);
+            await NavigationService.NavigateAsync("OverviewPictureView", p);
         }
         private async void NavigateToHome()
         {

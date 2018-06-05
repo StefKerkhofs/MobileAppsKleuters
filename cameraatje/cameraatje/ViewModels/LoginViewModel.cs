@@ -13,6 +13,8 @@ using cameraatje.Models;
 using cameraatje.Repositories;
 
 using System.Linq;
+using cameraatje.Contracts;
+
 namespace cameraatje.ViewModels
 {
     /*
@@ -33,12 +35,16 @@ namespace cameraatje.ViewModels
             get { return password; }
             set { SetProperty(ref password, value); }
         }
+        private IRepository repos;
+        private IDbContext dbContext;
         public ICommand loginCommand { get; private set; }
         private IPageDialogService dialogService;
-        public LoginViewModel( INavigationService navigationService, IPageDialogService dialogService) : base(navigationService)
+        public LoginViewModel( INavigationService navigationService, IPageDialogService dialogService, IDbContext dbContext, IRepository repos) : base(navigationService)
         {
             loginCommand = new DelegateCommand(login);
-            this.dialogService = dialogService;            
+            this.dialogService = dialogService;
+            this.repos = repos;
+            this.dbContext = dbContext;
         }
        
         public async void login()
@@ -54,7 +60,8 @@ namespace cameraatje.ViewModels
                 var a = await auth.SignInWithEmailAndPasswordAsync(email, password);
                 await dialogService.DisplayAlertAsync("Aanmelden is gelukt","User", "OK");
                 var p = new NavigationParameters();
-                var u = await GetUserAsync(email);
+                var u = await repos.GetUserAsync(email);
+                var t = await repos.GetToddlerAsync(u.kleuter_id);
                 p.Add("Toddler", t);
                 await NavigationService.NavigateAsync("Choice",p);
               

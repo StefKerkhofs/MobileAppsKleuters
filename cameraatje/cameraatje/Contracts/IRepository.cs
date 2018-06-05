@@ -9,6 +9,7 @@ namespace cameraatje.Contracts
     {
         Task<List<Picture>> GetPicturesAsync();
         Task<List<Toddler>> GetToddlersAsync();
+        Task<Toddler> GetToddlerAsync(int id);
         Task<List<Tag>> GetTagsAsync();
         Task<List<User>> GetUsersAsync();
         Task<User> GetUserAsync(string email);
