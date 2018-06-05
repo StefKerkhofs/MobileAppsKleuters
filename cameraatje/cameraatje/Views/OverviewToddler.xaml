@@ -14,7 +14,12 @@
                             <Image HorizontalOptions="CenterAndExpand" 
                                    Source='{Binding foto_string}'
                                    WidthRequest="400"
-                                   HeightRequest="400"/>      
+                                   HeightRequest="400">
+                                <Image.GestureRecognizers>
+                                    <TapGestureRecognizer Command="{Binding tapCommand}" 
+                     />
+                                </Image.GestureRecognizers>
+                            </Image>
 
                         </StackLayout>
                     </ViewCell>
