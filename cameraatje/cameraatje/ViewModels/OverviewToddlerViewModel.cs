@@ -17,7 +17,7 @@ using System.Windows.Input;
 
 namespace cameraatje.ViewModels
 {
-    //Author: Sasha van de Voorde
+    //Author: Sasha van de Voorde & Stef Kerkhofs
     public class OverviewToddlerViewModel : ViewModelBase
 	{
         private IRepository repos;
@@ -53,14 +53,14 @@ namespace cameraatje.ViewModels
         {
             this.dbContext = dbContext;
             this.repos = repos;
-            this.dialogService = dialogService; 
-          
+            this.dialogService = dialogService;
+         
             TapCommand = new Command(OnTapped);
          
         }
       
         public async override void OnNavigatedTo(NavigationParameters parameters)
-        { 
+        {
             repos = new CameraatjeRepository(dbContext);
             Toddlers = await repos.GetToddlersAsync();
         }

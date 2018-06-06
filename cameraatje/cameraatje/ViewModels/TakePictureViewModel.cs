@@ -105,18 +105,18 @@ namespace cameraatje.ViewModels
 
                 // await the task to wait until upload completes and get the download url
                 var downloadUrl = await task;
-                await dialogService.DisplayAlertAsync("Download Url", downloadUrl, "OK");
+
 
                 Picture p = new Picture();
                 p.foto_string = downloadUrl;
                 p.hoek_id = selectedCorner.hoek_id;
                 p.kleuter_id = selectedToddler.kleuter_id;
-                
+
                 dbContext.Picture.Add(p);
                 await dbContext.SaveChangesAsync();
-         
+                await dialogService.DisplayAlertAsync("De foto is opgeslagen!", downloadUrl, "OK");
 
-                
+
 
             }
             catch (Exception ex)

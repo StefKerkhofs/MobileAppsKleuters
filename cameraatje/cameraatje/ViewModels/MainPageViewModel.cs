@@ -37,8 +37,6 @@ namespace cameraatje.ViewModels
         }
 
         public ICommand TapCommand { get; private set; }
-        public ICommand NavigateToLoginCommand { get; private set; }
-        public ICommand NavigateToOverviewToddlerCommand { get; private set; }
 
         public MainPageViewModel(INavigationService navigationService)
             : base(navigationService)
@@ -48,8 +46,7 @@ namespace cameraatje.ViewModels
             School = ImageSource.FromResource("cameraatje.Images.account_kleuter.png");
             Home = ImageSource.FromResource("cameraatje.Images.account_thuis.png");
 
-            NavigateToLoginCommand = new DelegateCommand(NavigateToLogin);
-            NavigateToOverviewToddlerCommand = new DelegateCommand(NavigateToOverviewToddler);
+            
             TapCommand = new Command(OnTapped);
         }
 
